@@ -1,0 +1,111 @@
+﻿html{
+  background-color:#514;
+}
+body{
+  background-color:#fee;
+  color:#514;
+  max-width:800px;
+  margin:0 auto;
+  padding:1em 2em;
+}
+h1{
+  margin:0 0 0.5em 0;
+}
+h1 a{
+  color:#514;
+  text-decoration:none;
+}
+nav{
+  background-color:#514;
+  color:#fee;
+  font-size:small;
+  height:2.4rem;
+  left:0;
+  line-height:2.4rem;
+  top:0;
+}
+nav ul{
+  list-style:none;
+  margin:0;
+}
+nav li{
+  background-color:#514;
+}
+nav li:hover{
+  background-color:#847;
+}
+nav li a{
+  color:#fee;
+  display:block;
+  padding:0 0.4rem;
+  text-decoration:none;
+}
+nav li a:hover{
+  color:#fff;
+}
+nav li.here a{
+  color:#fff;
+}
+footer{
+  font-size:small;
+  text-align:center;
+}
+footer *{
+  margin-bottom:0;
+}
+@media (min-width:600px){
+  h1{
+    visibility:visible;
+  }
+  nav{
+    position:relative;
+    width:100%;
+  }
+  nav ul{
+    padding:0 0.4rem;
+  }
+  nav li{
+    float:left;
+  }
+}
+@media (max-width:599px){
+  h1{
+    visibility:hidden;
+  }
+  nav{
+    position:fixed;
+    width:100%;
+  }
+  nav:after{
+    content:"ラパパメリカ";
+    display:block;
+    float:left;
+    font-size:large;
+    left:0;
+    padding:0 0.4rem;
+    position:fixed;
+    top:0;
+  }
+  nav ul{
+    padding:0;
+    position:absolute;
+    right:0;
+    width:100px;
+  }
+  nav ul:before{
+    content:"≡";
+    cursor:pointer;
+    display:block;
+    font-size:xx-large;
+    padding:0 0.4rem;
+    text-align:right;
+  }
+  nav li{
+    display:none;
+    float:none;
+    text-align:center;
+  }
+  nav ul:hover li{
+    display:block;
+  }
+}
