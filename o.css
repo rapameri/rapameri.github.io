@@ -44,7 +44,7 @@ nav li a:hover{
   color:#fff;
 }
 nav li.here a{
-  color:#fff;
+  color:#f73;
 }
 footer{
   font-size:small;
@@ -67,6 +67,9 @@ footer *{
   nav li{
     float:left;
   }
+  nav div.tohome{
+    display:none;
+  }
 }
 @media (max-width:599px){
   h1{
@@ -76,6 +79,19 @@ footer *{
     position:fixed;
     width:100%;
   }
+  nav div.tohome{
+    display:block;
+    font-size:large;
+    left:0;
+    padding:0 0.4rem;
+    position:fixed;
+    top:0;
+  }
+  nav div.tohome a{
+    color:#fee;
+    text-decoration:none;
+  }
+/*
   nav:before{
     content:"ラパパメリカ";
     display:block;
@@ -86,6 +102,7 @@ footer *{
     position:fixed;
     top:0;
   }
+*/
   nav ul{
     padding:0;
     position:fixed;
