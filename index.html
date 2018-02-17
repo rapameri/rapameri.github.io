@@ -18,36 +18,65 @@
 ラパメリ検閲済み
  -->
 <title>ラパパメリカ</title>
-<link rel="stylesheet" href="./o.css">
+<link rel="stylesheet" href="./src/o.css">
 </head>
-<body>
-  <h1><a href="https://rapameri.github.io/">ラパパメリカ</a></h1>
-  <nav>
-    <ul>
-      <li class="here"><a href="https://rapameri.github.io/">HOME</a></li>
-      <li><a href="https://rapameri.github.io/illust">ILLUST</a></li>
-      <li><a href="https://rapameri.github.io/acryl">ACRYL</a></li>
-      <li><a href="https://rapameri.github.io/about">ABOUT</a></li>
-      <li><a href="https://www.pixiv.net/member.php?id=11714075" target="_blank">pixiv</a></li>
-      <li><a href="https://twitter.com/rapameri" target="_blank">twitter</a></li>
-    </ul>
-    <div class="tohome"><a href="https://rapameri.github.io/">ラパパメリカ</a></div>
-  </nav>
-  <article>
-    <h2>テストサイト制作中</h2>
-    <time datetime="2018-02-12">2018/2/12</time>
-    <p>眠いメリ</p>
-    <p><a href="./test/">下層ディレクトリのテスト</a></p>
+<body id="index">
+  <header class="menu">
+    <nav>
+      <h1><a href="https://rapameri.github.io/" class="here">サイト名</a></h1>
+      <ul class="internal">
+        <li><a href="./about.html">ABOUT</a></li>
+        <li><a href="./acryl.html">ACRYL</a></li>
+        <li><a href="./books.html">BOOKS</a></li>
+        <li><a href="./contact.html" title="ABOUTの中で良いと思う">CONTACT</a></li>
+        <li><a href="./illust.html">ILLUST</a></li>
+        <li><a href="./link.html" title="これもABOUTの中な気がする">LINK</a></li>
+      </ul>
+      <ul class="external" title="ABOUTの中にも共通して入れる">
+        <li><a href="https://www.pixiv.net/member.php?id=11714075" target="_blank">pixiv</a></li>
+        <li><a href="https://twitter.com/rapameri" target="_blank">twitter</a></li>
+      </ul>
+    </nav>
+  </header>
+  <article class="main" id="index">
+    <h2>index</h2>
+    <article id="melon">
+      <h3>同人誌委託情報</h3>
+      <p>メロンブックス様に委託しています。</p>
+      <ul>
+        <li class="melon"><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=276829" target="_blank">こみっくどろーいんぐ!</a></li>
+        <li class="melon"><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=278593" target="_blank">サードアイメタルチャーム</a></li>
+        <li class="melon"><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=218455" target="_blank">プリンたべたい!</a></li>
+        <li class="melon"><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=197145" target="_blank">古明地さんといちねんかん</a></li>
+        <li class="melon"><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=183444" target="_blank">こいフラどりーむあふたーとぅもろー</a></li>
+        <li class="melon"><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=164416" target="_blank">こいしちゃんと平和な日常</a></li>
+      </ul>
+    </article>
+    <article id="event">
+      <h3>イベント参加予定</h3>
+      <ul>
+        <li>2017/4/15 げんましん</li>
+        <li>2017/5/6 例大祭</li>
+        <li>2017/6/3 こめこん</li>
+        <li>※夏コミは参加しません</li>
+      </ul>
+    </article>
+    <article id="aclyl">
+      <h3>アクリルスタンド</h3>
+      <p>3:4にして240x320pxかなあ</p>
+      <p>
+        <img src="./img/satori.png" alt="さとりアクリルスタンド" height="320">
+        <img src="./img/large_jacket.png" alt="ジャケ子アクリルスタンド" height="320">
+        <img src="./img/large_label.png" alt="レベ子アクリルスタンド" height="320">
+      </p>
+    </article>
   </article>
-  <article>
-    <h2>h2見出し</h2>
-  </article>
-  <footer>
-  <p>&copy; 2018 ラパパメリカ</p>
+  <footer class="notice">
+    <p><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+    <p><small>&copy; 2018 ラパパメリカ</small></p>
   </footer>
   <script>
 document.addEventListener('DOMContentLoaded',function(){
-  //document.querySelector('nav').addEventListener('touchstart',function(){});
   document.addEventListener('touchstart',function(){});
 });
   </script>
