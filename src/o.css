@@ -1,6 +1,6 @@
 ﻿html{
   width:100%;
-  background-color:#824;
+  background-color:#a28;
 }
 body{
   background-color:#fff;
@@ -67,7 +67,7 @@ footer.notice p{
   }
   header.menu ul.internal{
     float:left;
-    margin-left:0.4em;
+    margin-left:0.6em;
   }
   header.menu ul.external{
     display:block;
@@ -75,11 +75,11 @@ footer.notice p{
   }
   header.menu li{
     float:left;
-    border-right:0px solid #a28;
     text-align:left;
+    border-right:0px solid #a28;
   }
   header.menu li a{
-    padding:0 0.4em;
+    padding:0 0.5em;
   }
 }
 @media (max-width:639px){
@@ -87,7 +87,9 @@ footer.notice p{
     position:fixed;
     top:0;
     left:0;
-    width:calc(100% - 4rem);
+    padding-left:1rem;
+    padding-right:1rem;
+    width:calc(100% - 2rem);
   }
   header.menu ul.external{
     display:none;
@@ -107,7 +109,7 @@ footer.notice p{
   header.menu ul.internal li{
     display:none;
     float:none;
-    margin-right:-2rem;
+    margin-right:-1rem;
     background-color:#fdf;
     text-align:center;
   }
@@ -119,6 +121,12 @@ footer.notice p{
   }
   article.main{
     padding-top:3.2rem;
+    margin-left:1rem;
+    margin-right:1rem;
+  }
+  footer.notice{
+    padding-left:1rem;
+    padding-right:1rem;
   }
 }
 
@@ -127,13 +135,6 @@ footer.notice p{
 }
 #index article.main article{
   margin:1rem 0;
-}
-#index article.main #event:after{
-  display:block;
-  height:1px;
-  clear:both;
-  content:"_";
-  visibility:hidden;
 }
 #index article.main #aclyl{
   margin-top:1rem;
