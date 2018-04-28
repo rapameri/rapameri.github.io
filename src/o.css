@@ -192,6 +192,9 @@ body#index{
   content:'fafisdoafsao';
 }
 @media (min-width:640px){
+  #index article.main{
+    -webkit-perspective:100;
+  }
   #index article.main:before{
     display:block;
     padding:0 6rem;
@@ -201,6 +204,7 @@ body#index{
     background-image:url('../img/roof.png');
     content:'_';
     color:transparent;
+    transform:rotateX(2deg);
   }
   #index header.menu{
     background-color:#def;
