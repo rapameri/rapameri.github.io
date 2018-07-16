@@ -80,7 +80,7 @@
         counter3++;
         hearts.push({
           x: 480, y: 270, 
-          theta: sayu * Math.PI * (i / 6 + counter2 / 5), speed: 15,
+          theta: sayu * Math.PI * (i / 6 + counter2 / 5), speed: 24,
           img: '', width: 48, height: 48,
           next: function(t){
             return function(x,y,theta,speed){
@@ -88,13 +88,13 @@
                 x: x + speed * Math.cos(theta),
                 y: y + speed * Math.sin(theta),
                 theta: (theta + t * 0.0314),
-                speed: (0.01 + speed / 1.005)
+                speed: (0.01 + speed / 1.05)
               };
             }
           }(-1*sayu),
           clear: function(x,y,theta,speed){
             var b0 = (x<-100 || y<-100 || canvas.width+100<x || canvas.height+100<y);
-            var ip = Math.abs((480-x)*Math.cos(theta) + (270-y)*Math.sin(theta))/kyori(x,y);
+            var ip = Math.abs((480-x)*Math.cos(theta-Math.PI/2) + (270-y)*Math.sin(theta-Math.PI/2))/kyori(x,y);
             var b1 = (x != 480 && y != 270 && ip < 0.01)
             return b0 || b1;
           }

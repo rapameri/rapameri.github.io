@@ -8,17 +8,16 @@
     return (e.clientY - canvas.offsetTop); //responsiveの拡大縮小率で補正すること！
   }
   function onClick(e){
+    /*
     if (480-100 < mouseX && mouseX < 480+100 && 270-100 < mouseY && mouseY < 270+100) {
-      console.log('こいしちゃん');
-      /*
       type = (type != 'ego') ? 'ego' : 'ido';
       var i, l = hearts.length;
       for (i = 0; i < l; i++) {
         var h = hearts[i];
         h.type = type;
       }
-      */
     }
+    */
   }
   function onMousemove(e){
     var rect = e.target.getBoundingClientRect();
@@ -34,24 +33,9 @@
   canvas.addEventListener('mouseover',onMouseover);
   
   //kokokara 2017/7/15
-  // var type = 'ido';
-  var hearts = [{
-    x: 480, y: 270, 
-    theta: Math.PI, speed: 24,
-    img: '', width: 48, height: 48,
-    next: function(x,y,theta,speed){
-      return {
-        x: x + speed * Math.cos(theta),
-        y: y + speed * Math.sin(theta),
-        theta: (theta + 0.0314),
-        speed: (0.01 + speed / 1.05)
-      };
-    },
-    clear: function(x,y,theta,speed){
-      var ip = Math.abs((480-x)*Math.cos(theta-Math.PI/2) + (270-y)*Math.sin(theta-Math.PI/2))/kyori(x,y);
-      return ip < 0.01;
-    }
-  }];
+  var direction = 'outside';
+  var type = 'ido';
+  var hearts = [];
   var ld = 0;
   function imgload(){
     ld++;
@@ -67,40 +51,27 @@
   kimg.onload = imgload;
   var counter1 = 0;
   var counter2 = 0;
-  var counter3 = 0;
   function fps30(){
     context.clearRect(0,0,canvas.width,canvas.height);
     ugokuheart();
+    /*
+    var theta = Math.random() * Math.PI * 2
+    var newheart = (type != 'ego') ? {
+      x: 480, y: 270, theta: theta, speed: 8 + Math.random() * 24, to: 'outside', type: 'ido'
+    } : {
+      x: 480 + 600 * Math.cos(theta), y: 270 + 600 * Math.sin(theta), theta: theta, speed: 8 + Math.random() * 24, to: 'center', type: 'ido'
+    };
+    hearts.push(newheart);
+    */
     counter1++;
     if (counter1 > 5) {
       counter1 = 0;
       counter2++;
-      for (var i = 0; i < 24; i++) {
-        var sayu = (counter3 > 12) ? +1 : -1;
-        counter3++;
+      for (var i = 0; i < 12; i++) {
         hearts.push({
-          x: 480, y: 270, 
-          theta: sayu * Math.PI * (i / 6 + counter2 / 5), speed: 15,
-          img: '', width: 48, height: 48,
-          next: function(t){
-            return function(x,y,theta,speed){
-              return {
-                x: x + speed * Math.cos(theta),
-                y: y + speed * Math.sin(theta),
-                theta: (theta + t * 0.0314),
-                speed: (0.01 + speed / 1.005)
-              };
-            }
-          }(-1*sayu),
-          clear: function(x,y,theta,speed){
-            var b0 = (x<-100 || y<-100 || canvas.width+100<x || canvas.height+100<y);
-            var ip = Math.abs((480-x)*Math.cos(theta) + (270-y)*Math.sin(theta))/kyori(x,y);
-            var b1 = (x != 480 && y != 270 && ip < 0.01)
-            return b0 || b1;
-          }
+          x: 480, y: 270, theta: Math.PI * (i / 6 + counter2 / 5), speed: 10, type: ''
         });
       }
-      counter3 = 0;
     }
     context.drawImage(kimg,480-100,270-100,200,200);
   }
@@ -115,35 +86,33 @@
       var h = hearts[i];
       if (h) {
         context.save();
-        context.translate(h.x,h.y);
-        context.rotate(h.theta - Math.PI/2);
-        context.drawImage(img,-h.width/2,-h.height/2);
-        context.restore();
-        var newX, newY, newT, newS;
-        if (h.next) {
-          var n = h.next(h.x,h.y,h.theta,h.speed);
-          newX = n.x;
-          newY = n.y;
-          newT = n.theta;
-          newS = n.speed;
-        } else {
+        var newX, newY;
+        if (type != 'ego') {
           newX = h.x + h.speed * Math.cos(h.theta);
           newY = h.y + h.speed * Math.sin(h.theta);
-          newT = h.theta;
-          newS = h.speed;
-        }
-        if (h.clear && h.clear(h.x,h.y,h.theta,h.speed)) {
-          hearts.splice(i,1);
-          i--;
-        } else if (h.x<-100 || h.y<-100 || canvas.width+100<h.x || canvas.height+100<h.y) {
-          hearts.splice(i,1);
-          i--;
+          context.translate(h.x,h.y);
+          context.rotate(h.theta - Math.PI/2);
+          context.drawImage(img,-24,-24);
+          if (h.x < -100 || h.y < -100 || canvas.width + 100 < h.x || canvas.height + 100 < h.y) {
+            hearts.splice(i,1);
+            i--;
+          }
+        } else {
+          newX = h.x - h.speed * Math.cos(h.theta);
+          newY = h.y - h.speed * Math.sin(h.theta);
+          context.translate(h.x,h.y);
+          context.rotate(h.theta + Math.PI/2);
+          context.drawImage(img,-24,-24);
+          if (kyori(h.x,h.y) < kyori(newX,newY)) {
+            hearts.splice(i,1);
+            i--;
+          }
         }
         h.x = newX;
         h.y = newY;
-        h.theta = newT;
-        h.speed = newS;
+        context.restore();
       }
+      //context.rotate(-theta);
     }
   };
 });
