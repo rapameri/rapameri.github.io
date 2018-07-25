@@ -16,7 +16,7 @@ header.menu{
   left:1rem;
 }
 header.menu:hover:before{
-  display:none;
+  /*display:none;*/
 }
 header.menu:before{
   content:"menu";
@@ -29,7 +29,7 @@ header.menu:before,header.menu a{
   border-radius:2rem;
   background-color:#fff;
   color:#000;
-  filter:drop-shadow(1px 1px 1px rgba(255,128,72,0.5));
+  /*filter:drop-shadow(1px 1px 1px rgba(255,128,72,0.5));*/
   text-align:center;
   text-decoration:none;
 }
@@ -40,7 +40,9 @@ header.menu a:hover{
 header.menu a.here{
   color:#f14;
 }
-header.menu:hover h1,header.menu:hover ul.internal{
+header.menu:hover h1{  
+}
+header.menu:hover ul.internal{
   display:block;
 }
 header.menu h1,header.menu ul.internal{
