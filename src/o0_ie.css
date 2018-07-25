@@ -1,0 +1,137 @@
+﻿html{
+  width:100%;
+  background-color:#def;
+}
+body{
+  background-color:#fff;
+  font-size:16px;
+  color:#514;
+  margin:0 auto;
+  width:100%;
+  max-width:960px;
+}
+header.menu{
+  display:block;
+  padding:0.5rem 2rem;
+  height:2.4rem;
+  background-color:#fdf;
+  line-height:2.4rem;
+  font-size:smaller;
+}
+header.menu nav{
+  display:block;
+}
+header.menu a{
+  color:#514;
+  text-decoration:none;
+}
+header.menu a.here{
+  color:#e14;
+}
+header.menu li a{
+  display:block;
+}
+header.menu li a:hover{
+  background-color:#514;
+  color:#fff;
+}
+header.menu h1{
+  float:left;
+  margin:0;
+  padding:0;
+  margin-right:0.4em;
+}
+header.menu ul{
+  margin:0;
+  padding:0;
+}
+header.menu li{
+  list-style:none;
+}
+article.main{
+  display:block;
+  margin:0.5rem 2rem;
+}
+footer.notice{
+  display:block;
+  padding:1rem 2rem;
+  background-color:#fdf;
+}
+footer.notice p{
+  margin:0;
+  text-align:center;
+}
+@media (min-width:640px){
+  header.menu ul{
+    border-left:0px solid #a28;
+  }
+  header.menu ul.internal{
+    float:left;
+    margin-left:0.6em;
+  }
+  header.menu ul.external{
+    display:block;
+    float:right;
+  }
+  header.menu li{
+    float:left;
+    text-align:left;
+    border-right:0px solid #a28;
+  }
+  header.menu li a{
+    padding:0 0.5em;
+  }
+}
+@media (max-width:639px){
+  header.menu{
+    position:fixed;
+    top:0;
+    left:0;
+    padding-left:1rem;
+    padding-right:1rem;
+    width:calc(100% - 2rem);
+  }
+  header.menu ul.external{
+    display:none;
+    float:none;
+  }
+  header.menu ul.internal{
+    float:right;
+  }
+  header.menu ul.internal:before{
+    display:block;
+    margin-bottom:0.5rem;
+    content:"≡";
+    cursor:pointer;
+    font-size:xx-large;
+    text-align:right;
+  }
+  header.menu ul.internal li{
+    display:none;
+    float:none;
+    margin-right:-1rem;
+    background-color:#fdf;
+    text-align:center;
+  }
+  header.menu ul.internal:hover li{
+    display:block;
+  }
+  header.menu li a{
+    padding:0 1rem;
+  }
+  article.main{
+    padding-top:3.2rem;
+    margin-left:1rem;
+    margin-right:1rem;
+  }
+  footer.notice{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+}
+
+#test #canvas{
+  border:1px solid #000;
+  width:100%;
+}
+

@@ -33,4 +33,5 @@ for file in htmlfiles:
   f.write(html)
   f.close()
 
-input('completed.')
+print('completed.')
+#input('completed.')
