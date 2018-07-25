@@ -212,3 +212,23 @@ article.main>div{
 #books ul.books li span.date{
   font-size:xx-small;
 }
+
+#acryl ul.acryl{
+  margin:0 1rem;
+  padding:0;
+}
+#acryl ul.acryl li{
+  display:block;
+  float:left;
+  margin:0.5rem;
+  list-style:none;
+  text-align:center;
+}
+#acryl ul.acryl:after{
+  display:block;
+  clear:both;
+  content:'';
+}
+#acryl ul.acryl li img{
+  max-height:180px;
+}
