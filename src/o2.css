@@ -232,3 +232,12 @@ article.main>div{
 #acryl ul.acryl li img{
   max-height:180px;
 }
+
+#test div.content-left{
+  text-align:center;
+}
+#test #canvas{
+  border:1px solid #000;
+  max-width:100%;
+  max-height:100vh;
+}
