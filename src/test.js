@@ -42,6 +42,14 @@ document.addEventListener('DOMContentLoaded',function(){
   let mouseX = startX;
   let mouseY = startY;
   let clickX = -1, clickY = -1;
+  let touch = {
+    startX: 0,
+    startY: 0,
+    prevX: 0,
+    prevY: 0,
+    currX: 0,
+    currY: 0
+  }
   //events listener
   /* //使わなさそう
   let mouseOnCanvas = false;
@@ -49,7 +57,7 @@ document.addEventListener('DOMContentLoaded',function(){
   canvas.addEventListener('mouseleave',(e)=>mouseOnCanvas = false);
   */
   canvas.addEventListener('wheel',(e) => e.preventDefault());
-  canvas.addEventListener('touchmove',(e) => e.preventDefault());
+  //canvas.addEventListener('touchmove',(e) => e.preventDefault());
   window.addEventListener('scroll', (e) => {
     const crect = canvas.getBoundingClientRect();
     let diff = document.documentElement.clientHeight - crect.height;
@@ -73,8 +81,29 @@ document.addEventListener('DOMContentLoaded',function(){
     },interval*1.6)
   };
   canvas.addEventListener('mousemove',onMousemove);
-  canvas.addEventListener('touchmove',onMousemove);
-  canvas.addEventListener('mousedown',onClick); //タッチでも発火
+  //canvas.addEventListener('touchmove',onMousemove);
+  canvas.addEventListener('mousedown',onClick); //'mousedown'はタッチでも発火
+  canvas.addEventListener('touchstart',/*(e) => {
+    e.stopPropagation();
+    touch.startX = e.clientX;
+    touch.startY = e.clientY;
+    touch.currX = touch.startX;
+    touch.currY = touch.startY;
+  }*/onClick);
+  canvas.addEventListener('touchmove',(e) => {
+    touch.prevX = touch.currX;
+    touch.prevY = touch.currY;
+    touch.currX = e.clientX;
+    touch.currY = e.clientY;
+    mouseX += touch.currX - touch.prevX;
+    mouseY += touch.currY - touch.prevY;
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  });
+  canvas.addEventListener('touchend',(e) => {
+  
+  });
 
   //game init
   const imgs = new ImageLoader();
